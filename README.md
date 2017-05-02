@@ -13,4 +13,10 @@
     - 建立一个article app python manage.py startapp article
     - 启动Django中的开发服务器python manage.py runserver  
 
+
+ #### 开发编程 ：
+ 
+ - 添加APP模块
+ - 配置路由
+ - 页面模版
             
