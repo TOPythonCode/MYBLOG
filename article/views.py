@@ -16,7 +16,7 @@ def home(requset):
 
 def detail(requset, id):
     try:
-        Article.objects.get(id=str(id))
+        post = Article.objects.get(id=str(id))
     except Article.DoesNotExist:
         raise Http404
-    return HttpResponse(requset,'')
+    return render(requset, 'post.html', {'post': post})

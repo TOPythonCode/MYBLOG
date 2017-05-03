@@ -2,6 +2,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% load custom_markdown %}
 <div class="posts">
         <section class="post">
             <header class="post-header">
@@ -14,9 +15,10 @@
 
                 <div class="post-description">
                     <p>
-                        {{ post.content }}
+                        {{ post.content|custom_markdown }}
                     </p>
                 </div>
         </section>
+        {% include 'duoshou.html' %}
 </div><!-- /.blog-post -->
 {% endblock %}

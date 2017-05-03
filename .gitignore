@@ -7,3 +7,4 @@ article/migrations/0001_initial.pyc
 article/migrations/__init__.pyc
 article/models.pyc
 article/views.pyc
+db.sqlite3
