@@ -1,4 +1,6 @@
 from datetime import datetime
+
+from django.http import Http404
 from django.http import HttpResponse
 
 # Create your views here.
@@ -12,5 +14,9 @@ def home(requset):
     return render(requset, 'home.html', {'post_list': post_list})
 
 
-def detail(requset, my_args):
-    return HttpResponse("hello,world %s" % my_args)
+def detail(requset, id):
+    try:
+        Article.objects.get(id=str(id))
+    except Article.DoesNotExist:
+        raise Http404
+    return HttpResponse(requset,'')
