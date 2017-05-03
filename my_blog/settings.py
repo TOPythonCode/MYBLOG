@@ -40,6 +40,14 @@ INSTALLED_APPS = [
     'article'
 ]
 
+from django.conf import global_settings
+
+TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
+    'django.core.context_processors.request',
+)
+BOOTSTRAP_ADMIN_SIDEBAR_MENU = True
+
+
 MIDDLEWARE_CLASSES = [
     # 'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -52,12 +60,15 @@ MIDDLEWARE_CLASSES = [
 
 ROOT_URLCONF = 'my_blog.urls'
 
-from django.conf import global_settings
 
-TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
-    'django.core.context_processors.request',
+# TEMPLATE_DIRS = (
+#     os.path.join(BASE_DIR, 'templates').replace('\\', '/'),
+#     )
+
+TEMPLATE_PATH = os.path.join(BASE_DIR, 'templates')
+TEMPLATE_DIRS = (
+    TEMPLATE_PATH,
 )
-BOOTSTRAP_ADMIN_SIDEBAR_MENU = True
 
 TEMPLATES = [
     {

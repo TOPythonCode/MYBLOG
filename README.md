@@ -1,7 +1,9 @@
 "# MYBLOG" 
-
-
+    
+   #### 网站
    [学习地址博客](https://andrew-liu.gitbooks.io/django-blog/content/ )
+   
+   [Python正则表达式](http://www.cnblogs.com/huxi/archive/2010/07/04/1771073.html)
   
  #### 常用命令 ：
 - 服务器环境
