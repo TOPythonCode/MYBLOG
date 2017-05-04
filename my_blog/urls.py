@@ -16,6 +16,8 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from article.views import RSSFeed
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', 'article.views.home'),
@@ -25,4 +27,5 @@ urlpatterns = [
     url(r'^tag(?P<tag>\w+)/$', 'article.views.search_tag', name='search_tag'),
     url(r'^aboutme/$', 'article.views.about_me', name='aboutme'),
     url(r'^search/$', 'article.views.blog_search', name='search'),
+    url(r'^feed/$', RSSFeed(), name="RSS"),
 ]
