@@ -1,13 +1,22 @@
 from django.contrib.syndication.views import Feed
 from django.http import Http404
 from django.shortcuts import render, redirect
+from django.core.paginator import Paginator,EmptyPage, PageNotAnInteger
 
 from article.models import Article
 
 
 def home(requset):
     post_list = Article.objects.all()
-    return render(requset, 'home.html', {'post_list': post_list})
+    paginator = Paginator(post_list,2)
+    page = requset.GET.get('page')
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.paginator(paginator.num_pages)
+    return render(requset, 'home.html', {'post_list': posts})
 
 
 def detail(requset, id):
